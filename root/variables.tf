@@ -25,3 +25,6 @@ variable "DB-Tier-1a-cidr" {
 variable "DB-Tier-1b-cidr" {
   type = string
 }
+variable "vpc_id" {
+  type = string
+}

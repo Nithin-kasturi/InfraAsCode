@@ -2,6 +2,9 @@
 resource "aws_vpc" "Three-Tier-VPC-Resource" {
   cidr_block = "10.0.0.0/16"
   instance_tenancy = "default"
+  
+  enable_dns_hostnames    = true
+  enable_dns_support =  true
   tags={
     Name="${var.Project_Name}-VPC"
   }
@@ -93,6 +96,12 @@ resource "aws_subnet" "DB_tier-Subnet-2-Private" {
   }
 }
 
-
-
-
+#Assign public subnets to public route table
+resource "aws_route_table_association" "Web_tier-Subnet-1-Pub-RTA" {
+  subnet_id = aws_subnet.Web_tier-Subnet-1-Pub.id
+  route_table_id = aws_route_table.Three-Tier-Public-RT-Resource.id
+}
+resource "aws_route_table_association" "Web_tier-Subnet-2-Pub-RTA" {
+  subnet_id = aws_subnet.Web_tier-Subnet-2-Pub.id
+  route_table_id = aws_route_table.Three-Tier-Public-RT-Resource.id
+}

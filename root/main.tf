@@ -8,3 +8,10 @@ module "vpc" {
   DB-Tier-1a-cidr = var.DB-Tier-1a-cidr
   DB-Tier-1b-cidr = var.DB-Tier-1b-cidr
 }
+module "securitygroups"{
+  source = "../modules/securitygroups"
+  vpc_id = module.vpc.vpc_id
+}
+module "iam" {
+  source = "../modules/iam"
+}
