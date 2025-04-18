@@ -15,3 +15,9 @@ module "securitygroups"{
 module "iam" {
   source = "../modules/iam"
 }
+module "nat" {
+  source = "../modules/nat"
+  Web_Tier_Subnet1_id= module.vpc.Web_tier_Subnet1_id
+  vpc_id = module.vpc.vpc_id
+  App_Tier_Subnet1_id=module.vpc.App_Tier_Subnet1_id
+}

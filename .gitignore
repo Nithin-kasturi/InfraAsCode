@@ -4,3 +4,4 @@
 # **/*.tfvars
 **/*.tfplan
 **/crash.log
+/.env
