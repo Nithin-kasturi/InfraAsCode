@@ -21,3 +21,6 @@ module "nat" {
   vpc_id = module.vpc.vpc_id
   App_Tier_Subnet1_id=module.vpc.App_Tier_Subnet1_id
 }
+module "s3"{
+  source = "../modules/s3"
+}
