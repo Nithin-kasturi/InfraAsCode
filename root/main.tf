@@ -15,3 +15,14 @@ module "securitygroups"{
 module "iam" {
   source = "../modules/iam"
 }
+module "nat" {
+  source = "../modules/nat"
+  vpc_id = module.vpc.vpc_id
+  Web_Tier_Subnet1_id= module.vpc.Web_tier_Subnet1_id
+  App_Tier_Subnet1_id=module.vpc.App_Tier_Subnet1_id
+  Web_Tier_Subnet2_id=module.vpc.Web_tier_Subnet2_id
+  App_Tier_Subnet2_id=module.vpc.App_Tier_Subnet2_id
+}
+module "s3"{
+  source = "../modules/s3"
+}
