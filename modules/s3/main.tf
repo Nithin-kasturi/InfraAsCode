@@ -1,6 +1,9 @@
-resource "aws_s3_bucket" "bucket_for_code" {
-  bucket = "bucket-for-code"
+provider "aws" {
+  region = "us-east-1"
+}
+resource "aws_s3_bucket" "codebucket" {
+  bucket = "codebucket-950286"
   tags = {
-    Name = "bucket-for-code"
+    Name = "codebucket-950286"
   }
 }
